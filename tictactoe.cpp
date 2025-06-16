@@ -63,48 +63,42 @@ void table()
 int main()
 {  
    int choice;
+   int result;
    for(int turn = 0; turn < 10; turn++){
       table();
       if (turn % 2 == 0) {
          cout << "Player 1's turn (X), enter a spot from the table to make your mark" << endl;
          cin >> choice;
-         
-         if (choice == 1){square[1] = 'X';}
-         if (choice == 2){square[2] = 'X';}
-         if (choice == 3){square[3] = 'X';}
-         if (choice == 4){square[4] = 'X';}
-         if (choice == 5){square[5] = 'X';}
-         if (choice == 6){square[6] = 'X';}
-         if (choice == 7){square[7] = 'X';}
-         if (choice == 8){square[8] = 'X';}
-         if (choice == 9){square[9] = 'X';}
-         else {cout<< "This spot is already filled!"<< endl;}
-         
-
-      }
+         if (square[choice] != 'X' && square[choice] != 'O')
+         {
+            square[choice] = 'X';
+         }
+         else 
+         {
+         cout<< "This spot is already filled!"<< endl;
+         turn--;
+         }
+         }
       else {
          cout<< "Player 2's Turn (O), enter a spot from the table to make your mark" << endl;
          cin >> choice;
 
-         if (choice == 1){square[1] = 'O';}
-         if (choice == 2){square[2] = 'O';}
-         if (choice == 3){square[3] = 'O';}
-         if (choice == 4){square[4] = 'O';}
-         if (choice == 5){square[5] = 'O';}
-         if (choice == 6){square[6] = 'O';}
-         if (choice == 7){square[7] = 'O';}
-         if (choice == 8){square[8] = 'O';}
-         if (choice == 9){square[9] = 'O';}
-         else {cout<< "This spot is already filled!"<< endl;}
-
-      }
-      checkwin();
-      if (checkwin() == 1)
+         if (square[choice] != 'X' && square[choice] != 'O')
+         {
+            square[choice] = 'O';
+         }
+         else 
+         {
+            cout<< "This spot is already filled!"<< endl;
+            turn--;
+         }}
+      result = checkwin();
+      if (result == 1)
       {
          cout<< "Gameover!";
          break;
       }
-      else if(checkwin() == 0)
+      else if(result == 0)
       {
          cout << "Game Draw!";
          break;
