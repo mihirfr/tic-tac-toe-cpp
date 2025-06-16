@@ -69,7 +69,7 @@ int main()
       if (turn % 2 == 0) {
          cout << "Player 1's turn (X), enter a spot from the table to make your mark" << endl;
          cin >> choice;
-         if (square[choice] != 'X' && square[choice] != 'O')
+         if (square[choice] != 'X' && square[choice] != 'O' && choice >=1 && choice <= 9)
          {
             square[choice] = 'X';
          }
@@ -83,7 +83,7 @@ int main()
          cout<< "Player 2's Turn (O), enter a spot from the table to make your mark" << endl;
          cin >> choice;
 
-         if (square[choice] != 'X' && square[choice] != 'O')
+         if (square[choice] != 'X' && square[choice] != 'O' && choice >=1 && choice<=9)
          {
             square[choice] = 'O';
          }
